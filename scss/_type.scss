@@ -1,0 +1,28 @@
+body {
+  font-size: 16px;
+  font-family: 'Open Sans', Helvetica, Roboto, Arial, sans-serif;
+  color: $text;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+
+}
+
+h2 {
+
+}
+
+p {
+  color: $text;
+  border: 1px solid red;
+}
+
+a {
+  color: $clickable;
+  transition: color $hover-timing ease;
+  &:hover {
+    color: darken($clickable, 6%);
+  }
+}
