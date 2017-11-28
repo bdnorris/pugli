@@ -10,6 +10,8 @@ html {
 /* END BOX MODEL SETTINGS */
 
 $hover-timing: 0.5s;
+$border-radius: 5px;
+
 $sans: 'Open Sans', Helvetica, Roboto, Arial, sans-serif;
 
 .clearfix {
@@ -23,11 +25,4 @@ $sans: 'Open Sans', Helvetica, Roboto, Arial, sans-serif;
     clear: both;
   }
   zoom: 1; /* For IE 6/7 (trigger hasLayout) */
-}
-
-$content-width: 828px;
-$border-radius: 5px;
-
-h2 {
-    color: red;
 }
