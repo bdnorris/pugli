@@ -29,7 +29,7 @@ gulp.task('sass', function() {
     	browsers: ['last 2 versions'],
     	cascade: false
     })) // autoprefixer
-    .pipe(cssnano()) // for mini-fying CSS, leaving off for now
+    // .pipe(cssnano()) // for mini-fying CSS, leaving off for now
     .pipe(browserSync.reload({
       stream: true
   }))
@@ -38,8 +38,8 @@ gulp.task('sass', function() {
 
 // Watchers
 gulp.task('watch', ['browserSync', 'sass'], function() {
-  gulp.watch('scss/**/*.scss', ['sass']);
-  gulp.watch('*.html').on('change', browserSync.reload);
+  gulp.watch('scss/**/*.scss', ['sass'], browserSync.reload);
+  gulp.watch('*.html', browserSync.reload);
 })
 
 // Optimization Tasks
