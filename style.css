@@ -1,1 +1,89 @@
-html{box-sizing:border-box}*,:after,:before{box-sizing:inherit}.clearfix{zoom:1}.clearfix:after,.clearfix:before{content:"";display:table}.clearfix:after{clear:both}h2{color:red}body{font-size:16px;font-family:Open Sans,Helvetica,Roboto,Arial,sans-serif;margin:0;padding:0}body,p{color:#343741}p{border:1px solid red}a{color:#b7006a;transition:color .5s ease}a:hover{color:#980058}a.button,button{box-sizing:border-box;border:none;display:block;background-color:#b7006a;color:#fff;text-align:center;border-radius:0;cursor:pointer;transition:background-color .5s ease;line-height:1.2em;max-width:280px}a.button:hover,button:hover{background-color:#980058}
+/* BOX MODEL SETTING FOR ALL ELEMENTS BY DEFAULT
+THIS IS BETTER THAN DEFAULT, YOU SHOULD ALWAYS USE THIS:
+*/
+html {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; }
+
+*, *:before, *:after {
+  -webkit-box-sizing: inherit;
+  box-sizing: inherit; }
+
+/* END BOX MODEL SETTINGS */
+.clearfix {
+  zoom: 1;
+  /* For IE 6/7 (trigger hasLayout) */ }
+  .clearfix:before, .clearfix:after {
+    content: "";
+    display: table; }
+  .clearfix:after {
+    clear: both; }
+
+h2 {
+  color: red; }
+
+@-webkit-keyframes fadeOut {
+  0% {
+    opacity: 1;
+    visibility: visible; }
+  100% {
+    opacity: 0;
+    visibility: hidden; } }
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+    visibility: visible; }
+  100% {
+    opacity: 0;
+    visibility: hidden; } }
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+    visibility: hidden; }
+  100% {
+    opacity: 1;
+    visibility: visible; } }
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    visibility: hidden; }
+  100% {
+    opacity: 1;
+    visibility: visible; } }
+
+body {
+  font-size: 16px;
+  font-family: 'Open Sans', Helvetica, Roboto, Arial, sans-serif;
+  color: #343741;
+  margin: 0;
+  padding: 0; }
+
+p {
+  color: #343741; }
+
+a {
+  color: #b7006a;
+  -webkit-transition: color 0.5s ease;
+  transition: color 0.5s ease; }
+  a:hover {
+    color: #980058; }
+
+button, a.button {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  border: none;
+  display: block;
+  background-color: #b7006a;
+  color: white;
+  text-align: center;
+  border-radius: 0;
+  cursor: pointer;
+  -webkit-transition: background-color 0.5s ease;
+  transition: background-color 0.5s ease;
+  line-height: 1.2em;
+  max-width: 280px; }
+  button:hover, a.button:hover {
+    background-color: #980058; }
