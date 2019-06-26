@@ -5,14 +5,20 @@ var sourcemaps = require("gulp-sourcemaps");
 var autoprefixer = require("autoprefixer");
 var cssnano = require("gulp-cssnano");
 var browserSync = require("browser-sync").create();
+var babel = require("gulp-babel");
+var concat = require("gulp-concat");
+// https://www.npmjs.com/package/webpack-stream
+var webpack = require("webpack-stream");
 
 const path = {
   sass: "scss/**/*.scss",
-  html: "**/*.html"
+  html: "**/*.html",
+  entry: "js/src/entry.js",
+  js: "js/src/**/*.js"
 };
 
 // Styles task for production `gulp styles`
-gulp.task("styles", function() {
+gulp.task("prod-styles", function() {
   return gulp
     .src(path.sass) // Gets all files ending with .scss in app/scss and children dirs
     .pipe(sass().on("error", sass.logError)) // Passes it through a gulp-sass, log errors to console
@@ -29,7 +35,7 @@ gulp.task("styles", function() {
     .pipe(gulp.dest(".")); // Outputs it in the root folder
 });
 
-// Styles task for development with sourcemaps `gulp dev`
+// Styles task for development with sourcemaps `gulp`
 gulp.task("sass", function() {
   return gulp
     .src(path.sass) // Gets all files ending with .scss in app/scss and children dirs
@@ -39,14 +45,22 @@ gulp.task("sass", function() {
     .pipe(gulp.dest(".")); // Outputs it in sibling CSS folder
 });
 
-// Watch task
-// gulp.task("watch", function() {
-//   gulp.watch(path.sass, gulp.series("sass"));
-// });
-
 // Build `gulp build`
 // Styles then stop
-gulp.task("build", gulp.series("styles"));
+gulp.task("build", gulp.series("prod-styles"));
+
+gulp.task("js", function() {
+  return gulp
+    .src(path.entry)
+    .pipe(
+      babel({
+        presets: ["@babel/env"]
+      })
+    )
+    .pipe(webpack({mode: 'production'}))
+    .pipe(concat("main.js"))
+    .pipe(gulp.dest("js/"));
+});
 
 // Static Server + watching scss/html files
 gulp.task("serve", function() {
@@ -56,12 +70,11 @@ gulp.task("serve", function() {
     }
   });
 
-  gulp.watch(path.sass, gulp.series("sass"))
-    .on("change", browserSync.reload);
-  gulp.watch(path.html)
-    .on("change", browserSync.reload);
+  gulp.watch(path.sass, gulp.series("sass")).on("change", browserSync.reload);
+  gulp.watch(path.html).on("change", browserSync.reload);
+  gulp.watch(path.js, gulp.series("js")).on("change", browserSync.reload);
 });
 
 // Default `gulp`
-// Styles then watch
-gulp.task("default", gulp.series("sass", "serve"));
+// Styles then serve
+gulp.task("default", gulp.series("sass", "js", "serve"));
