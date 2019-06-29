@@ -5,10 +5,11 @@ var sourcemaps = require("gulp-sourcemaps");
 var autoprefixer = require("autoprefixer");
 var cssnano = require("gulp-cssnano");
 var browserSync = require("browser-sync").create();
-var babel = require("gulp-babel");
+// var babel = require("gulp-babel");
 var concat = require("gulp-concat");
 // https://www.npmjs.com/package/webpack-stream
-var webpack = require("webpack-stream");
+var webpackStream = require("webpack-stream");
+const webpackConfig = require("./webpack.config.js");
 
 const path = {
   sass: "scss/**/*.scss",
@@ -53,11 +54,8 @@ gulp.task("js", function() {
   return gulp
     .src(path.entry)
     .pipe(
-      babel({
-        presets: ["@babel/env"]
-      })
+      webpackStream(webpackConfig)
     )
-    .pipe(webpack({mode: 'production'}))
     .pipe(concat("main.js"))
     .pipe(gulp.dest("js/"));
 });
