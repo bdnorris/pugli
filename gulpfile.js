@@ -11,13 +11,14 @@ var concat = require("gulp-concat");
 // https://www.npmjs.com/package/webpack-stream
 var webpackStream = require("webpack-stream");
 var webpackConfig = require("./webpack.config.js");
+var clean = require("gulp-clean");
 
 var path = {
   sass: "src/scss/**/*.scss",
-  html: "**/*.html",
+  html: "src/**/*.html",
   entry: "src/js/entry.js",
   js: "src/js/**/*.js",
-  images: "src/images/*",
+  images: "src/images/*"
 };
 
 // Styles task for production `gulp styles`
@@ -52,13 +53,11 @@ gulp.task("images", function() {
   return gulp
     .src(path.images)
     .pipe(imagemin())
-    .pipe(gulp.dest("dist/images"));
+    .pipe(gulp.dest("./dist/images"));
 });
 
 gulp.task("html", function() {
-  return gulp
-    .src(path.html)
-    .pipe(gulp.dest("dist/"));
+  return gulp.src(path.html).pipe(gulp.dest("dist/"));
 });
 
 gulp.task("js", function() {
@@ -82,10 +81,14 @@ gulp.task("serve", function() {
   gulp.watch(path.js, gulp.series("js")).on("change", browserSync.reload);
 });
 
+gulp.task("clean", function() {
+  return gulp.src("./dist", { allowEmpty: true }).pipe(clean());
+})
+
 // Build `gulp build`
 // Styles then stop
-gulp.task("build", gulp.series("html", "prod-styles", "js"));
+gulp.task("build", gulp.series("clean", "html", "images", "prod-styles", "js"));
 
 // Default `gulp`
 // Styles then serve
-gulp.task("default", gulp.series("html", "sass", "js", "serve"));
+gulp.task("default", gulp.series("clean", "html", "images", "sass", "js", "serve"));
