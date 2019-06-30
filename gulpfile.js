@@ -77,12 +77,12 @@ gulp.task("serve", function() {
   });
 
   gulp.watch(path.sass, gulp.series("sass")).on("change", browserSync.reload);
-  gulp.watch(path.html).on("change", browserSync.reload);
+  gulp.watch(path.html, gulp.series("html")).on("change", browserSync.reload);
   gulp.watch(path.js, gulp.series("js")).on("change", browserSync.reload);
 });
 
 gulp.task("clean", function() {
-  return gulp.src("./dist", { allowEmpty: true }).pipe(clean());
+  return gulp.src("./dist", { read: false, allowEmpty: true }).pipe(clean());
 })
 
 // Build `gulp build`
