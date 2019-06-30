@@ -81,34 +81,10 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./js/src/entry.js");
+/******/ 	return __webpack_require__(__webpack_require__.s = "./src/js/entry.js");
 /******/ })
 /************************************************************************/
 /******/ ({
-
-/***/ "./js/src/entry.js":
-/*!*************************!*\
-  !*** ./js/src/entry.js ***!
-  \*************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-eval("\n\nvar _coreJs = __webpack_require__(/*! core-js */ \"./node_modules/core-js/index.js\");\n\nvar _coreJs2 = _interopRequireDefault(_coreJs);\n\nvar _myscript = __webpack_require__(/*! ./scripts/myscript.js */ \"./js/src/scripts/myscript.js\");\n\nvar _myscript2 = _interopRequireDefault(_myscript);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\n(0, _myscript2.default)();\n\n//# sourceURL=webpack:///./js/src/entry.js?");
-
-/***/ }),
-
-/***/ "./js/src/scripts/myscript.js":
-/*!************************************!*\
-  !*** ./js/src/scripts/myscript.js ***!
-  \************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n\nexports.default = function () {\n  console.log(\"Hello World!\");\n  document.querySelector('h1').addEventListener('click', function (e) {\n    e.currentTarget.style.color = e.currentTarget.style.color === 'red' ? 'black' : 'red';\n  });\n};\n\n//# sourceURL=webpack:///./js/src/scripts/myscript.js?");
-
-/***/ }),
 
 /***/ "./node_modules/core-js/es/index.js":
 /*!******************************************!*\
@@ -5598,6 +5574,30 @@ eval("__webpack_require__(/*! ../modules/web.dom-collections.for-each */ \"./nod
 /***/ (function(module, exports) {
 
 eval("var g;\n\n// This works in non-strict mode\ng = (function() {\n\treturn this;\n})();\n\ntry {\n\t// This works if eval is allowed (see CSP)\n\tg = g || new Function(\"return this\")();\n} catch (e) {\n\t// This works if the window reference is available\n\tif (typeof window === \"object\") g = window;\n}\n\n// g can still be undefined, but nothing to do about it...\n// We return undefined, instead of nothing here, so it's\n// easier to handle this case. if(!global) { ...}\n\nmodule.exports = g;\n\n\n//# sourceURL=webpack:///(webpack)/buildin/global.js?");
+
+/***/ }),
+
+/***/ "./src/js/entry.js":
+/*!*************************!*\
+  !*** ./src/js/entry.js ***!
+  \*************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\n\nvar _coreJs = __webpack_require__(/*! core-js */ \"./node_modules/core-js/index.js\");\n\nvar _coreJs2 = _interopRequireDefault(_coreJs);\n\nvar _myscript = __webpack_require__(/*! ./scripts/myscript.js */ \"./src/js/scripts/myscript.js\");\n\nvar _myscript2 = _interopRequireDefault(_myscript);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\n// import \"core-js/features/promise\"; <- polyfills, feature, or all on the next line\n(0, _myscript2.default)();\n\n//# sourceURL=webpack:///./src/js/entry.js?");
+
+/***/ }),
+
+/***/ "./src/js/scripts/myscript.js":
+/*!************************************!*\
+  !*** ./src/js/scripts/myscript.js ***!
+  \************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n\nexports.default = function () {\n  console.log(\"Hello World!\"); // testing arrow functions\n\n  document.querySelector('h1').addEventListener('click', function (e) {\n    e.currentTarget.style.color = e.currentTarget.style.color === 'red' ? 'black' : 'red';\n  }); // testing polyfills with NodeList forEach\n\n  document.querySelectorAll('h2').forEach(function (d) {\n    console.log(d.innerText);\n  });\n};\n\n//# sourceURL=webpack:///./src/js/scripts/myscript.js?");
 
 /***/ })
 
