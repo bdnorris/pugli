@@ -1,2 +1,7 @@
 extends layouts/default.pug
-h1 Gulp starter with Pug
+
+block content
+  h1= 'Pug Starter'
+  - var pets = ['cat', 'dog']
+  each petName in pets
+    //- include pet.pug
