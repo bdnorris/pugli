@@ -89,11 +89,7 @@ gulp.task("serve", function() {
   });
 
   gulp.watch(path.sass, gulp.series("sass")).on("change", browserSync.reload);
-  if (usePug) {
-    gulp.watch(path.pug, gulp.series("pug")).on("change", browserSync.reload);
-  } else {
-    gulp.watch(path.html, gulp.series("html")).on("change", browserSync.reload);
-  }
+  gulp.watch(path.pug, gulp.series("pug")).on("change", browserSync.reload);
   gulp.watch(path.js, gulp.series("js")).on("change", browserSync.reload);
 });
 
@@ -102,17 +98,9 @@ gulp.task("clean", function() {
 })
 
 // Build `gulp build`
-// Styles then stop
-if (usePug) {
+// Build for production then stop
   gulp.task("build", gulp.series("clean", "pug", "images", "prod-styles", "js"));
-} else {
-  gulp.task("build", gulp.series("clean", "html", "images", "prod-styles", "js"));
-}
 
 // Default `gulp`
-// Styles then serve
-if (usePug) {
-  gulp.task("default", gulp.series("clean", "pug", "images", "sass", "js", "serve"));
-} else {
-  gulp.task("default", gulp.series("clean", "pug", "images", "sass", "js", "serve"));
-}
+// Build for dev then serve
+gulp.task("default", gulp.series("clean", "pug", "images", "sass", "js", "serve"));
