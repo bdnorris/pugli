@@ -5,7 +5,6 @@ const sourcemaps = require("gulp-sourcemaps");
 const autoprefixer = require("autoprefixer");
 const cssnano = require("gulp-cssnano");
 const browserSync = require("browser-sync").create();
-// const babel = require("gulp-babel");
 const imagemin = require("gulp-imagemin");
 const concat = require("gulp-concat");
 // https://www.npmjs.com/package/webpack-stream
@@ -13,8 +12,11 @@ const webpackStream = require("webpack-stream");
 const webpackConfig = require("./webpack.config.js");
 const clean = require("gulp-clean");
 const pug = require("gulp-pug");
+const styleInject = require("gulp-style-inject");
 
-const usePug = true;
+// const usePug = true;
+const useStyleInject = false;
+// REMOVE Style import from the default layout if you want to use style injection instead
 
 const path = {
   sass: "src/scss/**/*.scss",
@@ -60,17 +62,39 @@ gulp.task("images", function() {
     .pipe(gulp.dest("./dist/images"));
 });
 
-gulp.task("html", function() {
-  return gulp.src(path.html).pipe(gulp.dest("dist/"));
-});
+// gulp.task("html", function() {
+//   if (useStyleInject) {
+//     return gulp
+//       .src(path.html)
+//       .pipe(
+//         styleInject({
+//           encapsulated: true
+//         })
+//       )
+//       .pipe(gulp.dest("dist/"));
+//   } else {
+//     return gulp.src(path.html).pipe(gulp.dest("dist/"));
+//   }
+// });
 
 gulp.task("pug", function() {
-  return gulp.src(path.pug)
-  .pipe(pug({
-
-  }))
-  .pipe(gulp.dest("dist/"))
-})
+  if (useStyleInject) {
+    return gulp
+      .src(path.pug)
+      .pipe(pug({}))
+      .pipe(
+        styleInject({
+          encapsulated: true
+        })
+      )
+      .pipe(gulp.dest("dist/"));
+  } else {
+    return gulp
+      .src(path.pug)
+      .pipe(pug({}))
+      .pipe(gulp.dest("dist/"));
+  }
+});
 
 gulp.task("js", function() {
   return gulp
@@ -95,12 +119,15 @@ gulp.task("serve", function() {
 
 gulp.task("clean", function() {
   return gulp.src("./dist", { read: false, allowEmpty: true }).pipe(clean());
-})
+});
 
 // Build `gulp build`
 // Build for production then stop
-  gulp.task("build", gulp.series("clean", "pug", "images", "prod-styles", "js"));
+gulp.task("build", gulp.series("clean", "pug", "images", "prod-styles", "js"));
 
 // Default `gulp`
 // Build for dev then serve
-gulp.task("default", gulp.series("clean", "pug", "images", "sass", "js", "serve"));
+gulp.task(
+  "default",
+  gulp.series("clean", "pug", "images", "sass", "js", "serve")
+);
