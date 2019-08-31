@@ -1,0 +1,30 @@
+body {
+  font-family: $sans;
+  font-size: $browser-context * 1px;
+  color: $text;
+  background-color: $cream;
+  padding: 0;
+  margin: 0;
+  scroll-behavior: smooth;
+  /* font weight normalization */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  &.locked {
+    overflow: hidden;
+  }
+}
+
+img, picture {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}

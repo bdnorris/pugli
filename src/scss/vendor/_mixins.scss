@@ -274,3 +274,47 @@
     @content;
   }
 }
+
+@mixin ordered-list {
+  font-family: inherit;
+  font-weight: 400;
+  line-height: 1.429;
+  & > li {
+    margin-bottom: 0.5em;
+  }
+}
+@mixin unordered-list {
+  font-family: inherit;
+  font-weight: 400;
+  line-height: 1.429;
+  padding-left: 0;
+  list-style: none;
+  & > li {
+    margin-bottom: 0.5em;
+    position: relative;
+    &::before {
+      content: '';
+      background-image: svg-uri($list-triangle);
+      background-repeat: no-repeat;
+      display: block;
+      width: 8px;
+      height: 14px;
+      position: absolute;
+      left: -16px;
+      top: 4px;
+    }
+  }
+
+  .list-item--heading {
+    margin-left: -16px;
+    margin-bottom: 25px;
+
+    h1, h2, h3, h4 {
+      text-align: left;
+    }
+
+    &::before {
+      background: none;
+    }
+  }
+}

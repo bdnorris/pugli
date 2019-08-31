@@ -1,80 +1,75 @@
-
-
-@mixin responsive-svg($base-height, $base-width, $desired-width) {
-  width: $desired-width;
-  height: (($desired-width * $base-height) / $base-width);
-  // height: auto; DOESN'T WORK IN WEBKIT (THE NEW IE)
+// use in button elements to reset styles before adding your own.
+@mixin button-reset {
+  background-image: none;
+  background-color: transparent;
+  border-radius: none;
+  box-shadow: none;
+  -webkit-appearance: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  font-family: inherit;
 }
 
-@mixin shift($direction, $offset) {
-  position: relative;
-  @if ($direction == up) {
-    top: -$offset; // move
-    margin-bottom: -$offset; // and compensate
-  }
-  @if ($direction == down) {
-    bottom: -$offset; // move
-    margin-top: -$offset; // and compensate
-  }
-  @if ($direction == left) {
-    left: -$offset; // move
-    margin-left: -$offset; // and compensate
-  }
-  @if ($direction == right) {
-    right: -$offset; // move
-    margin-right: -$offset; // and compensate
-  }
-}
-
-
-
-
-
-////
-/// Helper function to easily use an SVG inline in CSS
-/// without encoding it to base64, saving bytes.
-/// It also helps with browser support.
-////
-
-/// A small function allowing skipping base64 encoding
-/// and simply pasting the SVG markup right in the CSS.
-/// @author Jakob Eriksen
-/// @link http://codepen.io/jakob-e/pen/doMoML
-/// @param {String} $svg - SVG image to encode
-/// @return {String} - Encoded SVG data uri
-@function svg-uri($svg) {
-    $encoded: '';
-    $slice: 2000;
-    $index: 0;
-    $loops: ceil(str-length($svg) / $slice);
-
-    @for $i from 1 through $loops {
-        $chunk: str-slice($svg, $index, $index + $slice - 1);
-        $chunk: str-replace($chunk, '"', "'");
-        $chunk: str-replace($chunk, '<', '%3C');
-        $chunk: str-replace($chunk, '>', '%3E');
-        $chunk: str-replace($chunk, '&', '%26');
-        $chunk: str-replace($chunk, '#', '%23');
-        $encoded: #{$encoded}#{$chunk};
-        $index: $index + $slice;
+// if not using grid, this flexbox based mixin is good for grids of items. Checkout the codepen to learn more and see an example. https://codepen.io/bdnorris/pen/MQpvKa
+@mixin columns($columns, $gutter) {
+  box-sizing: border-box; // just to be sure
+  $num-gutters: $columns - 1; // the number of gutters is one less than the number of columns
+  // loop through 1 - columns and reset nth childs to fix media query cascade issues
+  @for $i from 1 through $columns {
+    &:nth-child(#{$i}n) {
+      margin-right: calc(#{$gutter} - 1px); // -1px for IE rounding issues
     }
+  }
+  $gutter-size-col-reduce: $gutter*$num-gutters/$columns; // this finds the amount you have to reduce each column width by by taking the gutter, multiplying that by how many gutters you have and then dividing by how many columns you have
+  flex-grow: 0;
+  flex-shrink: 0;
+  // BTW, I always use width as a backup for flex-basis because IE doesn't like calc on flex-basis
+  flex-basis: calc(#{100/$columns}% - #{$gutter-size-col-reduce} - 1px);
+  /* BTW, I always use width as a backup for flex-basis because IE doesn't like calc on flex-basis */
+  width: calc(#{100/$columns}% - #{$gutter-size-col-reduce} - 1px);
+  @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    /* IE10+ CSS styles go here */
+    width: calc(#{100/$columns}% - #{$gutter-size-col-reduce} - 2px);
+    flex-basis: calc(#{100/$columns}% - #{$gutter-size-col-reduce} - 2px);
+  }
+  margin-right: $gutter; // all items get a gutter margin on the right
+  margin-left: 0;
+  &:nth-child(#{$columns}n) {
+    margin-right: 0; // then we take that margin away from the last column in the row
+  }
 
-    @return url("data:image/svg+xml;charset=utf8,#{$encoded}");
+  // protect from items inside being too large and breaking the grid
+  overflow: hidden;
 }
 
-/// Replace `$search` with `$replace` in `$string`
-/// @author Hugo Giraudel
-/// @link http://sassmeister.com/gist/1b4f2da5527830088e4d
-/// @param {String} $string - Initial string
-/// @param {String} $search - Substring to replace
-/// @param {String} $replace ('') - New value
-/// @return {String} - Updated string
-@function str-replace($string, $search, $replace: '') {
-    $index: str-index($string, $search);
+// for centered elements with a max-width, see codepen for example. https://codepen.io/bdnorris/pen/ydeMgj
+@mixin default-sizing($max) {
+  margin-left: $mobile-margin;
+  margin-right: $mobile-margin;
+  max-width: $max;
+  @include breakpoint(large) {
+    margin-left: $desktop-margin;
+    margin-right: $desktop-margin;
+  }
+  @include breakpoint ($max up) {
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: $desktop-margin;
+    padding-right: $desktop-margin;
+  }
+}
 
-    @if $index {
-        @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
-    }
+// https://css-tricks.com/snippets/sass/px-to-em-functions/
+// Use Ems, but no math to do when working from design programs
+@function em($pixels, $context: $browser-context) {
+  @if (unitless($pixels)) {
+    $pixels: $pixels * 1px;
+  }
 
-    @return $string;
+  @if (unitless($context)) {
+    $context: $context * 1px;
+  }
+
+  @return $pixels / $context * 1em;
 }

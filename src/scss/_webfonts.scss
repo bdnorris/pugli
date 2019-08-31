@@ -1,0 +1,275 @@
+/* @import must be at top of file, otherwise CSS will not work */
+// @import url("//hello.myfonts.net/count/3385b8");
+// sorry, but this delays the loading of my page, killing it
+
+// @import url("https://use.typekit.net/bpn4qvz.css");
+// link instead in nuxt.config
+
+/**
+ * @license
+ * MyFonts Webfont Build ID 3376568, 2017-04-19T11:44:43-0400
+ *
+ * The fonts listed in this notice are subject to the End User License
+ * Agreement(s) entered into by the website owner. All other parties are
+ * explicitly restricted from using the Licensed Webfonts(s).
+ *
+ * You may obtain a valid license at the URLs below.
+ *
+ * Webfont: Swiss721BT-Light by Bitstream
+ * URL: http://www.myfonts.com/fonts/bitstream/swiss-721/light/
+ *
+ * Webfont: Swiss721BT-LightItalic by Bitstream
+ * URL: http://www.myfonts.com/fonts/bitstream/swiss-721/light-italic/
+ *
+ * Webfont: Swiss721BT-Bold by Bitstream
+ * URL: http://www.myfonts.com/fonts/bitstream/swiss-721/bold/
+ *
+ * Webfont: Swiss721BT-BoldItalic by Bitstream
+ * URL: http://www.myfonts.com/fonts/bitstream/swiss-721/bold-italic/
+ *
+ * Webfont: Swiss721BT-RomanCondensed by Bitstream
+ * URL: http://www.myfonts.com/fonts/bitstream/swiss-721/condensed/
+ *
+ * Webfont: Swiss721BT-BoldCondensed by Bitstream
+ * URL: http://www.myfonts.com/fonts/bitstream/swiss-721/bold-condensed/
+ *
+ * Webfont: Swiss721BT-ItalicCondensed by Bitstream
+ * URL: http://www.myfonts.com/fonts/bitstream/swiss-721/condensed-italic/
+ *
+ * Webfont: Swiss721BT-BoldCondensedItalic by Bitstream
+ * URL: http://www.myfonts.com/fonts/bitstream/swiss-721/condensed-bold-italic/
+ *
+ * Webfont: Swiss721BT-Heavy by Bitstream
+ * URL: http://www.myfonts.com/fonts/bitstream/swiss-721/heavy/
+ *
+ * Webfont: Swiss721BT-HeavyItalic by Bitstream
+ * URL: http://www.myfonts.com/fonts/bitstream/swiss-721/heavy-italic/
+ *
+ * Webfont: Swiss721BT-LightCondensed by Bitstream
+ * URL: http://www.myfonts.com/fonts/bitstream/swiss-721/light-condensed/
+ *
+ * Webfont: Swiss721BT-LightCondensedItalic by Bitstream
+ * URL: http://www.myfonts.com/fonts/bitstream/swiss-721/light-condensed-italic/
+ *
+ * Webfont: Swiss721BT-BlackCondensed by Bitstream
+ * URL: http://www.myfonts.com/fonts/bitstream/swiss-721/black-condensed/
+ *
+ * Webfont: Swiss721BT-BlackCondensedItalic by Bitstream
+ * URL: http://www.myfonts.com/fonts/bitstream/swiss-721/black-condensed-italic/
+ *
+ * Webfont: Swiss721BT-Medium by Bitstream
+ * URL: http://www.myfonts.com/fonts/bitstream/swiss-721/medium/
+ *
+ * Webfont: Swiss721BT-MediumItalic by Bitstream
+ * URL: http://www.myfonts.com/fonts/bitstream/swiss-721/medium-italic/
+ *
+ *
+ * License: http://www.myfonts.com/viewlicense?type=web&buildid=3376568
+ * Licensed pageviews: 10,000
+ * Webfonts copyright: Copyright 1990-2003 Bitstream Inc. All rights reserved.
+ *
+ * © 2017 MyFonts Inc
+*/
+
+
+
+@font-face {
+  /*font-family: 'Swiss721BT-Light';*/
+  font-family: 'Swiss';
+  src: url('/fonts/3385B8_0_0.eot');
+  src: url('/fonts/3385B8_0_0.eot?#iefix') format('embedded-opentype'),
+    url('/fonts/3385B8_0_0.woff2') format('woff2'),
+    url('/fonts/3385B8_0_0.woff') format('woff'),
+    url('/fonts/3385B8_0_0.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  /*font-family: 'Swiss721BT-LightItalic';*/
+  font-family: 'Swiss';
+  src: url('/fonts/3385B8_1_0.eot');
+  src: url('/fonts/3385B8_1_0.eot?#iefix') format('embedded-opentype'),
+    url('/fonts/3385B8_1_0.woff2') format('woff2'),
+    url('/fonts/3385B8_1_0.woff') format('woff'),
+    url('/fonts/3385B8_1_0.ttf') format('truetype');
+  font-weight: 300;
+  font-style: italic;
+}
+
+@font-face {
+  /*font-family: 'Swiss721BT-Bold';*/
+  font-family: 'Swiss';
+  src: url('/fonts/3385B8_2_0.eot');
+  src: url('/fonts/3385B8_2_0.eot?#iefix') format('embedded-opentype'),
+    url('/fonts/3385B8_2_0.woff2') format('woff2'),
+    url('/fonts/3385B8_2_0.woff') format('woff'),
+    url('/fonts/3385B8_2_0.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  /*font-family: 'Swiss721BT-BoldItalic';*/
+  font-family: 'Swiss';
+  src: url('/fonts/3385B8_3_0.eot');
+  src: url('/fonts/3385B8_3_0.eot?#iefix') format('embedded-opentype'),
+    url('/fonts/3385B8_3_0.woff2') format('woff2'),
+    url('/fonts/3385B8_3_0.woff') format('woff'),
+    url('/fonts/3385B8_3_0.ttf') format('truetype');
+  font-weight: 700;
+  font-style: italic;
+}
+
+/*@font-face {
+  /*font-family: 'Swiss721BT-RomanCondensed';*/
+  /*Not being used as of 5/24/17*/
+  /*
+  font-family: 'SwissCond';
+  src: url('webfonts/3385B8_4_0.eot');
+  src: url('webfonts/3385B8_4_0.eot?#iefix') format('embedded-opentype'),
+    url('webfonts/3385B8_4_0.woff2') format('woff2'),
+    url('webfonts/3385B8_4_0.woff') format('woff'),
+    url('webfonts/3385B8_4_0.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}*/
+
+/*@font-face {
+  /*font-family: 'Swiss721BT-BoldCondensed';*/
+  /*Not being used as of 5/24/17*//*
+  font-family: 'SwissCond';
+  src: url('webfonts/3385B8_5_0.eot');
+  src: url('webfonts/3385B8_5_0.eot?#iefix') format('embedded-opentype'),
+    url('webfonts/3385B8_5_0.woff2') format('woff2'),
+    url('webfonts/3385B8_5_0.woff') format('woff'),
+    url('webfonts/3385B8_5_0.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}*/
+
+/*@font-face {
+  /*font-family: 'Swiss721BT-ItalicCondensed';*/
+  /*Not being used as of 5/24/17*//*
+  font-family: 'SwissCond';
+  src: url('webfonts/3385B8_6_0.eot');
+  src: url('webfonts/3385B8_6_0.eot?#iefix') format('embedded-opentype'),
+    url('webfonts/3385B8_6_0.woff2') format('woff2'),
+    url('webfonts/3385B8_6_0.woff') format('woff'),
+    url('webfonts/3385B8_6_0.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+}*/
+
+/*@font-face {
+  /*font-family: 'Swiss721BT-BoldCondensedItalic';*/
+  /*Not being used as of 5/24/17*//*
+  font-family: 'SwissCond';
+  src: url('webfonts/3385B8_7_0.eot');
+  src: url('webfonts/3385B8_7_0.eot?#iefix') format('embedded-opentype'),
+    url('webfonts/3385B8_7_0.woff2') format('woff2'),
+    url('webfonts/3385B8_7_0.woff') format('woff'),
+    url('webfonts/3385B8_7_0.ttf') format('truetype');
+  font-weight: 700;
+  font-style: italic;
+}*/
+
+@font-face {
+  /*font-family: 'Swiss721BT-Heavy';*/
+  font-family: 'Swiss';
+  src: url('/fonts/3385B8_8_0.eot');
+  src: url('/fonts/3385B8_8_0.eot?#iefix') format('embedded-opentype'),
+    url('/fonts/3385B8_8_0.woff2') format('woff2'),
+    url('/fonts/3385B8_8_0.woff') format('woff'),
+    url('/fonts/3385B8_8_0.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  /*font-family: 'Swiss721BT-HeavyItalic';*/
+  font-family: 'Swiss';
+  src: url('/fonts/3385B8_9_0.eot');
+  src: url('/fonts/3385B8_9_0.eot?#iefix') format('embedded-opentype'),
+    url('/fonts/3385B8_9_0.woff2') format('woff2'),
+    url('/fonts/3385B8_9_0.woff') format('woff'),
+    url('/fonts/3385B8_9_0.ttf') format('truetype');
+  font-weight: 800;
+  font-style: italic;
+}
+
+/*@font-face {
+  /*font-family: 'Swiss721BT-LightCondensed';*/
+  /*Not being used as of 5/24/17*//*
+  font-family: 'SwissCond';
+  src: url('webfonts/3385B8_A_0.eot');
+  src: url('webfonts/3385B8_A_0.eot?#iefix') format('embedded-opentype'),
+    url('webfonts/3385B8_A_0.woff2') format('woff2'),
+    url('webfonts/3385B8_A_0.woff') format('woff'),
+    url('webfonts/3385B8_A_0.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}*/
+
+/*@font-face {
+  /*font-family: 'Swiss721BT-LightCondensedItalic';*/
+  /*Not being used as of 5/24/17*//*
+  font-family: 'SwissCond';
+  src: url('webfonts/3385B8_B_0.eot');
+  src: url('webfonts/3385B8_B_0.eot?#iefix') format('embedded-opentype'),
+    url('webfonts/3385B8_B_0.woff2') format('woff2'),
+    url('webfonts/3385B8_B_0.woff') format('woff'),
+    url('webfonts/3385B8_B_0.ttf') format('truetype');
+  font-weight: 300;
+  font-style: italic;
+}*/
+
+/*@font-face {
+  /*font-family: 'Swiss721BT-BlackCondensed';*/
+  /*Not being used as of 5/24/17*//*
+  font-family: 'SwissCond';
+  src: url('webfonts/3385B8_C_0.eot');
+  src: url('webfonts/3385B8_C_0.eot?#iefix') format('embedded-opentype'),
+    url('webfonts/3385B8_C_0.woff2') format('woff2'),
+    url('webfonts/3385B8_C_0.woff') format('woff'),
+    url('webfonts/3385B8_C_0.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+}*/
+
+/*@font-face {
+  /*font-family: 'Swiss721BT-BlackCondensedItalic';*/
+  /*Not being used as of 5/24/17*//*
+  font-family: 'SwissCond';
+  src: url('webfonts/3385B8_D_0.eot');
+  src: url('webfonts/3385B8_D_0.eot?#iefix') format('embedded-opentype'),
+    url('webfonts/3385B8_D_0.woff2') format('woff2'),
+    url('webfonts/3385B8_D_0.woff') format('woff'),
+    url('webfonts/3385B8_D_0.ttf') format('truetype');
+  font-weight: 900;
+  font-style: italic;
+}*/
+
+@font-face {
+  /*font-family: 'Swiss721BT-Medium';*/
+  font-family: 'Swiss';
+  src: url('/fonts/3385B8_E_0.eot');
+  src: url('/fonts/3385B8_E_0.eot?#iefix') format('embedded-opentype'),
+    url('/fonts/3385B8_E_0.woff2') format('woff2'),
+    url('/fonts/3385B8_E_0.woff') format('woff'),
+    url('/fonts/3385B8_E_0.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  /*font-family: 'Swiss721BT-MediumItalic';*/
+  font-family: 'Swiss';
+  src: url('/fonts/3385B8_F_0.eot');
+  src: url('/fonts/3385B8_F_0.eot?#iefix') format('embedded-opentype'),
+    url('/fonts/3385B8_F_0.woff2') format('woff2'),
+    url('/fonts/3385B8_F_0.woff') format('woff'),
+    url('/fonts/3385B8_F_0.ttf') format('truetype');
+  font-weight: 500;
+  font-style: italic;
+}

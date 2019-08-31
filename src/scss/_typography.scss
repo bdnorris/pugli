@@ -1,0 +1,116 @@
+h1, h2, h3, h4, h5, h6 {
+  color: $text;
+}
+
+h1, .h1 {
+  font-family: $sans;
+  font-weight: 800;
+  line-height: 1;
+  font-size: em(52);
+  @include breakpoint(large) {
+    font-size: em(82);
+  }
+  @include breakpoint(xlarge) {
+    font-size: em(102);
+  }
+}
+
+h2, .h2 {
+  font-weight: 800;
+  line-height: 1;
+  font-size: em(48);
+  @include breakpoint(large) {
+    font-size: em(76);
+  }
+  @include breakpoint(xlarge) {
+    font-size: em(95);
+  }
+}
+
+
+h3, .h3 {
+  font-size: #{(30/16)}em;
+  font-weight: 800;
+  line-height: 1;
+  @include breakpoint(large) {
+    font-size: em(40)
+  }
+  @include breakpoint(xlarge) {
+    font-size: em(50);
+  }
+}
+
+h4, .h4 {
+  font-size: em(20);
+  line-height: 1.214;
+  font-weight: 800;
+  color: $text-light;
+  @include breakpoint(large) {
+    font-size: em(23);
+  }
+  @include breakpoint(xlarge) {
+    font-size: em(28);
+  }
+}
+
+h5, .h5 {
+  font-weight: 500;
+  font-size: em(23);
+  line-height: 1.03;
+  letter-spacing: 0.05em;
+  margin: 0;
+  text-align: left;
+  @include breakpoint(large) {
+    font-size: em(25);
+  }
+  @include breakpoint(xlarge) {
+    // font-size: 1.75em;
+    font-size: #{(27/16)}em;
+  }
+}
+
+h6, .h6 {
+  font-family: $cond;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: em(19);
+  letter-spacing: 0.05em;
+  margin: 0;
+  a {
+    text-decoration: none;
+    color: $text-light;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  @include breakpoint(large) {
+    font-size: em(20);
+  }
+  @include breakpoint(xlarge) {
+    font-size: em(21);
+  }
+}
+
+a {
+  color: $clickable;
+  text-decoration: none;
+}
+
+p, .p {
+  font-weight: 300;
+  color: $text;
+  line-height: 1.429;
+  font-size: em(15);
+  // @include breakpoint(large) {
+  //   font-size: #{(15/16)}em;
+  // }
+  @include breakpoint(xlarge) {
+    font-size: em(17);
+  }
+}
+
+sup {
+  font-size: 50%;
+  vertical-align: middle;
+}

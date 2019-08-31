@@ -1,0 +1,57 @@
+
+// Borders
+$border-radius-slight: 2px;
+$border-radius-smaller: 4px;
+$border-radius-small: 5px;
+// $border-radius-large: 8px;
+
+// Breakpoints
+// These are used in the foundation breakpoint mixin
+$small:   0;
+$medium:  376px;
+$xmedium: 550px;
+$large:   769px;
+$larger:  900px;
+$xlarge:  1201px;
+$xxlarge: 1441px;
+
+$inner-width: 996px;
+$max-width: 1398px;
+// $max-width: 1280px;
+
+$mobile-margin: 1.5625em;
+$desktop-margin: 2em;
+
+
+// Type
+$browser-context: 16;
+$sans: 'Swiss', 'Helvetica', 'Arial', sans-serif;
+$cond: acumin-pro-extra-condensed, sans-serif;
+
+// Animation
+$default-timing: 200ms;
+
+// Layers
+$z: (
+  1: 10,
+  1.1: 11,
+  2: 20,
+  3: 30,
+  4: 40,
+  5: 50,
+  6: 60,
+  7: 70,
+  8: 80,
+  9: 90,
+  10: 100,
+  top: 1000
+);
+
+$global-angle: 2.7deg;
+
+$global-gutter: 30px;
+
+$skewedImage: polygon(0 0, 100% 6%, 100% 94%, 0% 100%);
+$skewedImageReversed: polygon(0 6%, 100% 0, 100% 100%, 0% 94%);
+$skewedImageTopOnly: polygon(0 0, 100% 6%, 100% 100%, 0% 100%);
+$skewedImageTopOnlyReversed: polygon(0 6%, 100% 0, 100% 100%, 0% 100%);

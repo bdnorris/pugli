@@ -1,8 +1,12 @@
-$main: #0d2d6c;
-$secondary: #68cef2;
-$clickable: tomato;
-$highlight: #cbdb2f;
-$highlight-bg: #eff4c1;
-$gray: #84898c;
-$lgray: #cecece;
-$text: #343741;
+$black: rgb(71, 63, 60);
+$gray: rgb(171, 160, 156); // #aba09c
+$cream: rgb(252, 251, 249); // #fcfbf9
+$orange: orange;
+/* aliases */
+$text: $black;
+$text-light: $gray;
+$error: $orange;
+$primary: $orange;
+$clickable: $orange;
+$clickable-hover: $orange;
+$clickable-btn-hover: lighten($orange, 20%);
