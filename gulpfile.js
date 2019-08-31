@@ -14,12 +14,14 @@ const clean = require("gulp-clean");
 const pug = require("gulp-pug");
 const styleInject = require("gulp-style-inject");
 
+const usePug = true;
+
 const useStyleInject = false;
 // REMOVE Style import from the default layout if you want to use style injection instead
 
 const path = {
   sass: "src/scss/**/*.scss",
-  html: "src/**/*.html",
+  html: "src/html/**/*.html",
   entry: "src/js/index.js",
   js: "src/js/**/*.js",
   images: "src/images/*",
@@ -61,21 +63,21 @@ gulp.task("images", function() {
     .pipe(gulp.dest("./dist/images"));
 });
 
-// * Leaving this for legacy customization if you want to ditch pug and just use HTML
-// gulp.task("html", function() {
-//   if (useStyleInject) {
-//     return gulp
-//       .src(path.html)
-//       .pipe(
-//         styleInject({
-//           encapsulated: true
-//         })
-//       )
-//       .pipe(gulp.dest("dist/"));
-//   } else {
-//     return gulp.src(path.html).pipe(gulp.dest("dist/"));
-//   }
-// });
+// * for html task if you don't want to use pug
+gulp.task("html", function() {
+  if (useStyleInject) {
+    return gulp
+      .src(path.html)
+      .pipe(
+        styleInject({
+          encapsulated: true
+        })
+      )
+      .pipe(gulp.dest("dist/"));
+  } else {
+    return gulp.src(path.html).pipe(gulp.dest("dist/"));
+  }
+});
 
 gulp.task("pug", function() {
   if (useStyleInject) {
@@ -121,7 +123,11 @@ gulp.task("serve", function() {
   });
 
   gulp.watch(path.sass, gulp.series("sass")).on("change", browserSync.reload);
-  gulp.watch(path.pug, gulp.series("pug")).on("change", browserSync.reload);
+  if (usePug) {
+    gulp.watch(path.pug, gulp.series("pug")).on("change", browserSync.reload);
+  } else {
+    gulp.watch(path.pug, gulp.series("html")).on("change", browserSync.reload);
+  }
   gulp.watch(path.js, gulp.series("js")).on("change", browserSync.reload);
 });
 
@@ -131,11 +137,22 @@ gulp.task("clean", function() {
 
 // Build `gulp build`
 // ! Build for production then stop
-gulp.task("build", gulp.series("clean", "pug", "images", "prod-styles", "js"));
+if (usePug) {
+  gulp.task("build", gulp.series("clean", "pug", "images", "prod-styles", "js"));
+} else {
+  gulp.task("build", gulp.series("clean", "html", "images", "prod-styles", "js"));
+}
 
 // Default `gulp`
 // ! Build for development then serve
-gulp.task(
-  "default",
-  gulp.series("clean", "pug", "images", "sass", "js", "serve")
-);
+if (usePug) {
+  gulp.task(
+    "default",
+    gulp.series("clean", "pug", "images", "sass", "js", "serve")
+  );
+} else {
+  gulp.task(
+    "default",
+    gulp.series("clean", "html", "images", "sass", "js", "serve")
+  );
+}
