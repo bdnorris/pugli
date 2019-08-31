@@ -1,12 +1,20 @@
-$black: rgb(71, 63, 60);
-$gray: rgb(171, 160, 156); // #aba09c
-$cream: rgb(252, 251, 249); // #fcfbf9
-$orange: orange;
+$red: #931621;
+$indigo: #28464B;
+$green: #2C8C99;
+$dgreen: #326771;
+$turquoise: #42D9C8;
+
+$black: #0E1111;
+$dgray: #232828;
+$gray: #444D4F;
+$lgray: #9EAFB2;
+$llgray: #DEE2E2;
+
 /* aliases */
-$text: $black;
+$text: $dgray;
 $text-light: $gray;
-$error: $orange;
-$primary: $orange;
-$clickable: $orange;
-$clickable-hover: $orange;
-$clickable-btn-hover: lighten($orange, 20%);
+$error: $red;
+$primary: $indigo;
+$secondary: $green;
+$clickable: $red;
+$clickable-hover: lighten($red, 20%);

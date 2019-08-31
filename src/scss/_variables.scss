@@ -1,27 +1,15 @@
-
-// Borders
-$border-radius-slight: 2px;
-$border-radius-smaller: 4px;
-$border-radius-small: 5px;
-// $border-radius-large: 8px;
-
 // Breakpoints
 // These are used in the foundation breakpoint mixin
+// Since I code mobile first, I use breakpoints that are 1 pixel higher than common sizes
 $small:   0;
 $medium:  376px;
-$xmedium: 550px;
 $large:   769px;
-$larger:  900px;
 $xlarge:  1201px;
 $xxlarge: 1441px;
 
-$inner-width: 996px;
-$max-width: 1398px;
-// $max-width: 1280px;
-
-$mobile-margin: 1.5625em;
+// Useful in the default-sizing mixin
+$mobile-margin: 1.5em;
 $desktop-margin: 2em;
-
 
 // Type
 $browser-context: 16;
@@ -31,10 +19,12 @@ $cond: acumin-pro-extra-condensed, sans-serif;
 // Animation
 $default-timing: 200ms;
 
-// Layers
+// Layers, add more in between breakpoints if you need. 
+// use map-get to access. 
+// z-index: map-get($z, 1)
+// https://sass-lang.com/documentation/functions/map#map-get
 $z: (
   1: 10,
-  1.1: 11,
   2: 20,
   3: 30,
   4: 40,
@@ -46,12 +36,3 @@ $z: (
   10: 100,
   top: 1000
 );
-
-$global-angle: 2.7deg;
-
-$global-gutter: 30px;
-
-$skewedImage: polygon(0 0, 100% 6%, 100% 94%, 0% 100%);
-$skewedImageReversed: polygon(0 6%, 100% 0, 100% 100%, 0% 94%);
-$skewedImageTopOnly: polygon(0 0, 100% 6%, 100% 100%, 0% 100%);
-$skewedImageTopOnlyReversed: polygon(0 6%, 100% 0, 100% 100%, 0% 100%);
