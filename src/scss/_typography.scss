@@ -2,93 +2,65 @@ h1, h2, h3, h4, h5, h6 {
   color: $text;
 }
 
+// Scale based on Jason Pamental's
+// http://typecast.com/blog/a-more-modern-scale-for-web-typography
+
 h1, .h1 {
   font-family: $sans;
   font-weight: 800;
-  line-height: 1;
-  font-size: em(52);
+  line-height: 1.25;
+  letter-spacing: -1.5px;
+  font-size: em(32);
   @include breakpoint(large) {
-    font-size: em(82);
+    font-size: em(40);
+    line-height: 1.125;
   }
   @include breakpoint(xlarge) {
-    font-size: em(102);
+    font-size: em(48);
+    line-height: 1.05;
   }
 }
 
 h2, .h2 {
+  font-family: $sans;
   font-weight: 800;
-  line-height: 1;
-  font-size: em(48);
+  line-height: 1.153;
+  letter-spacing: -0.5px;
+  font-size: em(26);
   @include breakpoint(large) {
-    font-size: em(76);
+    font-size: em(32);
+    line-height: 1.25;
   }
   @include breakpoint(xlarge) {
-    font-size: em(95);
+    font-size: em(36);
   }
 }
-
 
 h3, .h3 {
-  font-size: #{(30/16)}em;
+  font-family: $sans;
   font-weight: 800;
-  line-height: 1;
+  line-height: 1.36;
+  letter-spacing: 0;
+  font-size: em(22);
   @include breakpoint(large) {
-    font-size: em(40)
-  }
-  @include breakpoint(xlarge) {
-    font-size: em(50);
-  }
-}
-
-h4, .h4 {
-  font-size: em(20);
-  line-height: 1.214;
-  font-weight: 800;
-  color: $text-light;
-  @include breakpoint(large) {
-    font-size: em(23);
+    font-size: em(24);
+    line-height: 1.25;
   }
   @include breakpoint(xlarge) {
     font-size: em(28);
   }
 }
 
-h5, .h5 {
-  font-weight: 500;
-  font-size: em(23);
-  line-height: 1.03;
-  letter-spacing: 0.05em;
-  margin: 0;
-  text-align: left;
+h4, .h4 {
+  font-family: $sans;
+  font-weight: 800;
+  line-height: 1.111;
+  letter-spacing: 0.25px;
+  font-size: em(18);
+  color: $text-light;
   @include breakpoint(large) {
-    font-size: em(25);
-  }
-  @include breakpoint(xlarge) {
-    // font-size: 1.75em;
-    font-size: #{(27/16)}em;
-  }
-}
-
-h6, .h6 {
-  font-family: $cond;
-  text-transform: uppercase;
-  font-weight: 500;
-  font-size: em(19);
-  letter-spacing: 0.05em;
-  margin: 0;
-  a {
-    text-decoration: none;
-    color: $text-light;
-    &:hover {
-      text-decoration: underline;
-    }
-  }
-
-  @include breakpoint(large) {
-    font-size: em(20);
-  }
-  @include breakpoint(xlarge) {
-    font-size: em(21);
+    font-size: em(18);
+    line-height: 1.222;
   }
 }
 
@@ -98,15 +70,12 @@ a {
 }
 
 p, .p {
-  font-weight: 300;
+  font-weight: 400;
   color: $text;
-  line-height: 1.429;
-  font-size: em(15);
-  // @include breakpoint(large) {
-  //   font-size: #{(15/16)}em;
-  // }
-  @include breakpoint(xlarge) {
-    font-size: em(17);
+  line-height: 1.25;
+  font-size: em(16);
+  @include breakpoint(large) {
+    line-height: 1.375;
   }
 }
 

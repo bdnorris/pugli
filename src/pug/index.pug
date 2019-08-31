@@ -1,7 +1,13 @@
 extends layouts/default.pug
 
 block content
-  h1= 'Pug Starter'
-  - var pets = ['cat', 'dog']
-  each petName in pets
-    //- include pet.pug
+  section
+    article
+      h1= 'Pug Starter'
+      - var pets = ['cat', 'dog']
+      each petName in pets
+        p= petName
+      p= '"Because George wants to invite him to the ball," said Fred sarcastically.  "Because we want to send a letter, you stupid great prat," said George. "Who d&rsquo;you two keep writing to, eh?" said Ron. "Nose out, Ron, or I&rsquo;ll burn that for you too," said Fred, waving his wand threateningly. "So . . . you lot got dates for the ball yet?"'
+      h2= 'Heading 2'
+      h3= 'Heading 3'
+      h4= 'Heading 4'
