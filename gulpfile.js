@@ -9,19 +9,18 @@ const imagemin = require("gulp-imagemin");
 const concat = require("gulp-concat");
 // https://www.npmjs.com/package/webpack-stream
 const webpackStream = require("webpack-stream");
-const webpackConfig = require("./webpack.config.js");
+const webpackConfig = require("./webpack.config.js"); // webpack config file in root
 const clean = require("gulp-clean");
 const pug = require("gulp-pug");
 const styleInject = require("gulp-style-inject");
 
-// const usePug = true;
 const useStyleInject = false;
 // REMOVE Style import from the default layout if you want to use style injection instead
 
 const path = {
   sass: "src/scss/**/*.scss",
   html: "src/**/*.html",
-  entry: "src/js/entry.js",
+  entry: "src/js/index.js",
   js: "src/js/**/*.js",
   images: "src/images/*",
   pug: "src/pug/**/*.pug"
@@ -36,8 +35,8 @@ gulp.task("prod-styles", function() {
       postcss([
         autoprefixer({
           browsers: [">3%"],
-          cascade: false,
-          grid: true
+          cascade: false, // removes prefixed indentation
+          grid: true // grid prefixing => https://css-tricks.com/css-grid-in-ie-css-grid-and-the-new-autoprefixer/
         })
       ])
     )
@@ -62,6 +61,7 @@ gulp.task("images", function() {
     .pipe(gulp.dest("./dist/images"));
 });
 
+// * Leaving this for legacy customization if you want to ditch pug and just use HTML
 // gulp.task("html", function() {
 //   if (useStyleInject) {
 //     return gulp
@@ -81,7 +81,11 @@ gulp.task("pug", function() {
   if (useStyleInject) {
     return gulp
       .src(path.pug)
-      .pipe(pug({}))
+      .pipe(
+        pug({
+          /* options */
+        })
+      )
       .pipe(
         styleInject({
           encapsulated: true
@@ -91,7 +95,11 @@ gulp.task("pug", function() {
   } else {
     return gulp
       .src(path.pug)
-      .pipe(pug({}))
+      .pipe(
+        pug({
+          /* options */
+        })
+      )
       .pipe(gulp.dest("dist/"));
   }
 });
@@ -104,7 +112,7 @@ gulp.task("js", function() {
     .pipe(gulp.dest("dist/js"));
 });
 
-// Static Server + watching scss/html files
+// Static Server + watching all our files
 gulp.task("serve", function() {
   browserSync.init({
     server: {
@@ -122,11 +130,11 @@ gulp.task("clean", function() {
 });
 
 // Build `gulp build`
-// Build for production then stop
+// ! Build for production then stop
 gulp.task("build", gulp.series("clean", "pug", "images", "prod-styles", "js"));
 
 // Default `gulp`
-// Build for dev then serve
+// ! Build for development then serve
 gulp.task(
   "default",
   gulp.series("clean", "pug", "images", "sass", "js", "serve")
