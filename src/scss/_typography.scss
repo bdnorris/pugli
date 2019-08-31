@@ -74,6 +74,7 @@ p, .p {
   color: $text;
   line-height: 1.25;
   font-size: em(16);
+  max-width: 32em;
   @include breakpoint(large) {
     line-height: 1.375;
   }
