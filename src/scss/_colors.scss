@@ -1,0 +1,20 @@
+$red: #931621;
+$indigo: #28464B;
+$green: #2C8C99;
+$dgreen: #326771;
+$turquoise: #42D9C8;
+
+$black: #0E1111;
+$dgray: #232828;
+$gray: #444D4F;
+$lgray: #9EAFB2;
+$llgray: #DEE2E2;
+
+/* aliases */
+$text: $dgray;
+$text-light: $gray;
+$error: $red;
+$primary: $indigo;
+$secondary: $green;
+$clickable: $red;
+$clickable-hover: lighten($red, 20%);

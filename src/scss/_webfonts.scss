@@ -1,0 +1,13 @@
+// * For your local webfonts
+
+@font-face {
+  /*font-family: 'Swiss721BT-Medium';*/
+  font-family: 'Swiss';
+  src: url('/fonts/3385B8_E_0.eot');
+  src: url('/fonts/3385B8_E_0.eot?#iefix') format('embedded-opentype'),
+    url('/fonts/3385B8_E_0.woff2') format('woff2'),
+    url('/fonts/3385B8_E_0.woff') format('woff'),
+    url('/fonts/3385B8_E_0.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}

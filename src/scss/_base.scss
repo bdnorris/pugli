@@ -1,0 +1,34 @@
+// * base styles
+
+body {
+  font-family: $sans;
+  font-size: $browser-context * 1px; // ! the multiplication enforces pixels, even if you don't specify
+  color: $text;
+  background-color: $llgray;
+  padding: 0;
+  margin: 0;
+  scroll-behavior: smooth;
+  /* font weight normalization */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden; // keeps animations inside the viewport
+  &.locked {
+    // add this class with javascript when you launch a modal or something, to prevent background scrolling
+    overflow: hidden;
+  }
+}
+
+// responsive images
+img, picture {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+// box-sizing settings
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}

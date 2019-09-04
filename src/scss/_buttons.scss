@@ -1,0 +1,14 @@
+button {
+  @include button-reset;
+}
+
+.button {
+  line-height: 1;
+}
+
+button.button {
+
+}
+a.button {
+  text-decoration: none;
+}
