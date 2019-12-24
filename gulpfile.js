@@ -129,6 +129,7 @@ gulp.task("serve", function() {
     gulp.watch(path.pug, gulp.series("html")).on("change", browserSync.reload);
   }
   gulp.watch(path.js, gulp.series("js")).on("change", browserSync.reload);
+  gulp.watch(path.images, gulp.series("images")).on("change", browserSync.reload);
 });
 
 gulp.task("clean", function() {
