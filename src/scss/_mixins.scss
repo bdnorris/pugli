@@ -73,3 +73,13 @@
 
   @return $pixels / $context * 1em;
 }
+
+@mixin visually-hidden {
+  // accessible hide
+  position: absolute;
+  left:     -10000px;
+  top:      auto;
+  width:    1px;
+  height:   1px;
+  overflow: hidden;
+}
