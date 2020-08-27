@@ -2,7 +2,7 @@
 @mixin button-reset {
   background-image: none;
   background-color: transparent;
-  border-radius: none;
+  border-radius: 0;
   box-shadow: none;
   -webkit-appearance: none;
   border: none;
