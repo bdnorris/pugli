@@ -129,7 +129,7 @@ gulp.task("serve", function() {
   if (usePug) {
     gulp.watch(path.pug, gulp.series("pug")).on("change", browserSync.reload);
   } else {
-    gulp.watch(path.pug, gulp.series("html")).on("change", browserSync.reload);
+    gulp.watch(path.html, gulp.series("html")).on("change", browserSync.reload);
   }
   gulp.watch(path.js, gulp.series("js")).on("change", browserSync.reload);
   gulp.watch(path.images, gulp.series("images")).on("change", browserSync.reload);
