@@ -17,7 +17,8 @@ const styleInject = require("gulp-style-inject");
 const usePug = true;
 
 const useStyleInject = false;
-// REMOVE Style import from the default layout if you want to use style injection instead
+// REPLACE Style import from the default layout if you want to use style injection instead
+// PUT this in it's place: <!-- inject-style src="style.css" -->
 
 const path = {
   sass: "src/scss/**/*.scss",
@@ -43,7 +44,7 @@ gulp.task("prod-styles", function() {
       ])
     )
     .pipe(cssnano({ reduceIdents: false })) // this helps prevent breaking animations // for mini-fying CSS, leaving off for now
-    .pipe(gulp.dest("dist/")); // Outputs it in the root folder
+    .pipe(useStyleInject ? gulp.dest('src/scss') : gulp.dest("dist/")); // Outputs it in the root folder
 });
 
 // Styles task for development with sourcemaps `gulp`
@@ -53,7 +54,7 @@ gulp.task("sass", function() {
     .pipe(sourcemaps.init()) // Init sourcemaps
     .pipe(sass().on("error", sass.logError)) // Passes it through a gulp-sass, log errors to console
     .pipe(sourcemaps.write()) // Write it, it's embedded, making the file much larger. Should be turned off for Production
-    .pipe(gulp.dest("dist"));
+    .pipe(useStyleInject ? gulp.dest('src/scss') : gulp.dest("dist"));
 });
 
 gulp.task("images", function() {
@@ -70,7 +71,8 @@ gulp.task("html", function() {
       .src(path.html)
       .pipe(
         styleInject({
-          encapsulated: true
+          encapsulated: true,
+          path: './src/scss/'
         })
       )
       .pipe(gulp.dest("dist/"));
@@ -90,7 +92,8 @@ gulp.task("pug", function() {
       )
       .pipe(
         styleInject({
-          encapsulated: true
+          encapsulated: true,
+          path: './dist/'
         })
       )
       .pipe(gulp.dest("dist/"));
