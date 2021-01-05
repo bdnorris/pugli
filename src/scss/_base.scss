@@ -1,7 +1,10 @@
 // * base styles
 
-html {
-  scroll-behavior: smooth;
+// Animate scrolling only if users don’t prefer reduced motion
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
 }
 
 body {
