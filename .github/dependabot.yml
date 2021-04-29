@@ -1,0 +1,26 @@
+version: 2
+updates:
+- package-ecosystem: npm
+  directory: "/"
+  schedule:
+    interval: daily
+    time: "11:00"
+  open-pull-requests-limit: 10
+  ignore:
+  - dependency-name: core-js
+    versions:
+    - 3.10.2
+    - 3.11.0
+    - 3.8.3
+    - 3.9.1
+  - dependency-name: "@babel/core"
+    versions:
+    - 7.12.13
+    - 7.12.16
+    - 7.13.1
+    - 7.13.10
+    - 7.13.14
+    - 7.13.8
+  - dependency-name: pug-code-gen
+    versions:
+    - 2.0.3
